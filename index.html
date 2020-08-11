@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Time Difference Calculator</title>
+	<style>
+		h1 {
+			text-align: center;
+			color: white;
+
+		}
+		body {
+			font-family: sans-serif;
+			background-color: #E99DF9;
+		}
+		div {
+			width: 50%;
+			box-shadow: 10px 10px 50px grey;
+			padding: 20px;
+			margin:auto;
+			background-color: white;
+			
+		}
+		.fields,#find {
+			overflow: auto;
+			width: 90%;
+			display: block;
+			margin:20px auto;
+			border:none;
+			padding:10px;
+			border:1px solid white;	
+			text-align: center;
+			
+		}
+		.fields:hover {
+			border-bottom: 1px solid #DB51F7;
+			animation-name: color;
+			animation-duration: 0.5s; 
+			 
+		}
+		@keyframes color {
+			from{border-bottom: 1px solid white;}
+			to{border-bottom: 1px solid #DB51F7; }
+		}
+		#find {
+			background-color: white;
+			color: #AE41C4;
+			box-shadow: 2px 2px 5px grey;
+		}
+		#find:hover {
+			background-color:#AE41C4;color: white;	
+			animation-name: backgroundChange;
+			animation-duration: 0.5s;
+		}
+		@keyframes backgroundChange {
+			from{background-color: white;color: #AE41C4;}
+			to{background-color:#AE41C4;color: white; }
+		}
+		p {
+			text-align: center;
+			color: #AE41C4;
+		}
+	</style>
+</head>
+<body>
+	<h1>Time Difference Calculator</h1>
+	<div>
+		<input type="text" id="from" class="fields" placeholder="January 1,2020 OR MM/DD/YYYY" required>
+		<input type="text" id="to" class="fields" placeholder="January 2,2020 OR MM/DD/YYYY" required>
+		<input type="button" id="find" value="FIND" onclick="findMillisecs()">
+		<p id="result"></p>
+		<p id="seconds"></p>
+		<p id="minutes"></p>
+		<p id="hours"></p>
+		<p id="days"></p>
+		<p id="months"></p>
+		<p id="years"></p>
+    </div>
+
+	<script>
+		function findMillisecs() {
+			var a = document.getElementById('from').value;
+			var b = document.getElementById('to').value;
+			console.log(Date.parse(a));
+			console.log(Date.parse(b));
+		var msec = parseInt(Date.parse(b)) - parseInt(Date.parse(a))
+		var sec = msec/1000;
+		var min = sec/60;
+		var hr = min/60;
+		var day = hr/24;
+		var month = day/30;
+		var year = month/12;
+		document.getElementById('result').innerHTML = "Milliseconds : " + msec;
+
+		document.getElementById('seconds').innerHTML = "Seconds : " + sec;
+
+		document.getElementById('minutes').innerHTML = "Minutes : " + min;
+
+		document.getElementById('hours').innerHTML = "Hours : " + hr;
+
+		document.getElementById('days').innerHTML = "Days : " + day;
+
+		document.getElementById('months').innerHTML = "Months : " + month;
+
+		document.getElementById('years').innerHTML = "Years : " + year;
+
+		}
+	</script>
+</body>
+</html>

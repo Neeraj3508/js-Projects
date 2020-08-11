@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Digital Clock</title>
+	
+
+	<style>
+		/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+body {
+  background-color: black;
+  height: 200px;
+}
+
+#clock {
+  width: 90%;
+  margin-left: auto;;
+  margin-right: auto;
+  font-family: 'Orbitron', sans-serif;
+  color: #9006BA;
+  font-size: 9vw;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 15%;
+  box-shadow: 0px 0px 15px 20px #2D023B;
+  /*margin:auto;*/
+
+}
+	</style>
+
+	<script>
+		function currentTime() {
+			var d = new Date();
+			var hour = d.getHours();
+			var min = d.getMinutes();
+			var sec = d.getSeconds();
+
+			//am/pm
+
+			var midday = (hour>12)?"PM":"AM";
+
+			//12 hour format
+			hour = (hour==0)? 12 : (hour > 12) ? hour-12:hour;
+
+			hour = updateTime(hour);
+			min = updateTime(min);
+			sec = updateTime(sec);
+
+			
+
+
+			document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday;
+
+			var t = setTimeout(currentTime, 1000); //refresh time
+
+		}
+
+		function updateTime(k) {
+			if (k < 10) {
+				return "0" + k;
+			}
+			else {
+				return k;
+			}
+		}
+
+ 	</script>
+</head>
+<body onload="currentTime()">
+	<!-- <button onclick="currentTime()">Time</button> -->
+	<div id="clock"></div>
+</body>
+</html>
