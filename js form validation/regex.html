@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="textField">
+  <button onclick="javascript:test()">Check</button>
+  <p id="demo"></p>
+  <br>
+  <input type="text" id="emailTextField">
+  <button onclick="javascript:emailTest()">Check email</button>
+  <p id="emailText"></p>
+  <script>
+    var result;
+    function test() {
+      console.log('hello');
+    var x = document.getElementById('textField').value;
+    var patt = /^\(?([0-9]{5})\)?[-. ]?([0-9]{5})$/;
+    if(x.match(patt)) {
+      console.log('true');
+      result = 'true';
+      alert('true');
+    } else {
+      console.log('false');
+      result = 'false';
+      alert('false');
+    }
+    document.getElementById('demo').innerHTML = result;
+    }
+
+    function emailTest() {
+      var x = document.getElementById('emailTextField').value;
+      var patt = /^\(?([a-z])\)?[@]?([a-z])?[.]
+    }
+    
+
+  </script> 
+</body>
+</html>

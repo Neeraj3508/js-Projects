@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="leap">
+		<h1>Check or leap year</h1>
+		<input type="text" id="value">
+		<button onclick="leap()">Try me</button>
+
+		<script>
+			function leap() {
+				var a = parseInt(document.getElementById('value').value);
+				if ((a % 4 === 0 && a % 100 !== 0) || a % 400 === 0) {
+					alert('Leap Year');
+				}
+				else {
+					alert('Not a leap year');
+				}
+			}
+		</script>
+	</div>
+
+	<div>
+		<h1>Generate Pattern</h1>
+		<input type="text" id="pattern">
+		<button onclick="pattern()">Generate</button>
+		<p id="demo"></p>
+ 
+		<script>
+			function pattern(){
+			var i = 1,j = 1;
+			var text= "";
+			var n = parseInt(document.getElementById('pattern').value)
+			for(;i <= n; i++) {
+				for(j = 1; j <= i; j++) {
+					text += '*'
+				}
+				text += "<br>";
+			}
+			document.getElementById('demo').innerHTML = text;}
+		</script>
+	</div>
+</body>
+</html>
